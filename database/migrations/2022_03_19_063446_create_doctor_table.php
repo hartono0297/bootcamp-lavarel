@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetailRoleTable extends Migration
+class CreateDoctorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateDetailRoleTable extends Migration
      */
     public function up()
     {
-        Schema::create('detail_role', function (Blueprint $table) {
+        Schema::create('doctor', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->integer('specialist_id');
+            $table->string('name');
+            $table->string('fee');
+            $table->longtext('photo')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +31,6 @@ class CreateDetailRoleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_role');
+        Schema::dropIfExists('doctor');
     }
 }

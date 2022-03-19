@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetailPermissionTable extends Migration
+class CreateSpecialistTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateDetailPermissionTable extends Migration
      */
     public function up()
     {
-        Schema::create('detail_permission', function (Blueprint $table) {
+        Schema::create('specialist', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('name')->unique();
+            $table->string('price');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +29,6 @@ class CreateDetailPermissionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_permission');
+        Schema::dropIfExists('specialist');
     }
 }

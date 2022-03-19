@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetailSpecialistTable extends Migration
+class CreateConfigPaymentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateDetailSpecialistTable extends Migration
      */
     public function up()
     {
-        Schema::create('detail_specialist', function (Blueprint $table) {
+        Schema::create('config_payment', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('price');
+            $table->string('fee');
+            $table->string('vat');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +29,6 @@ class CreateDetailSpecialistTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_specialist');
+        Schema::dropIfExists('config_payment');
     }
 }

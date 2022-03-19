@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetailConfigPaymentTable extends Migration
+class CreateRoleUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateDetailConfigPaymentTable extends Migration
      */
     public function up()
     {
-        Schema::create('detail_config_payment', function (Blueprint $table) {
+        Schema::create('role_user', function (Blueprint $table) {
             $table->id();
-            $table->string('fee');
-            $table->string('vat');
+            $table->foreignId('role_id')->nullable()->index('fk_role_user_to_role');
+            $table->foreignId('user_id')->nullable()->index('fk_role_user_to_users');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +29,6 @@ class CreateDetailConfigPaymentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_config_payment');
+        Schema::dropIfExists('role_user');
     }
 }
