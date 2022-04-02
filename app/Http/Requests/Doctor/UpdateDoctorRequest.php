@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Doctor;
 
 use App\Models\Operational\Doctor;
-
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
