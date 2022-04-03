@@ -6,6 +6,8 @@ use App\Models\ManagementAccess\Role;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
+use illuminate\validation\rules;
+
 class UpdateRoleRequest extends FormRequest
 {
     /**
@@ -27,7 +29,7 @@ class UpdateRoleRequest extends FormRequest
     {
         return [
             'title' => [
-                'required', 'string', 'max:255',
+                'required', 'email', 'max:255', Rule::unique('role')->ignore($this->role),
             ],
         ];
     }

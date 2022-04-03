@@ -6,6 +6,8 @@ use App\Models\MasterData\Specialist;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
+use illuminate\validation\rules;
+
 class UpdateSpecialistRequest extends FormRequest
 {
     /**
@@ -27,7 +29,7 @@ class UpdateSpecialistRequest extends FormRequest
     {
         return [
             'name' => [
-                'required', 'string', 'max:255',
+                'required', 'string', 'max:255', Rule::unique('specialist')->ignore($this->specialist),
             ],
             'price' => [
                 'required', 'string', 'max:255',

@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Consultation;
 
-use App\Models\MasterData\Doctor;
+use App\Models\MasterData\Consultation;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -27,7 +27,7 @@ class StoreConsultationRequest extends FormRequest
     {
         return [
             'name' => [
-                'required', 'string', 'max:255',
+                'required', 'string', 'max:255', 'unique:consultation',
             ],
         ];
     }
