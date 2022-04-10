@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.auth')
 
 @section('title', 'Login')
 
@@ -124,3 +124,5 @@
     </div>
   </body>
 </html>
+
+@endsection
