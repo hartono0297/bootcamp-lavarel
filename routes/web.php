@@ -8,6 +8,7 @@ use App\Http\Controllers\Frontsite\PaymentController;
 
 //backsite
 use App\Http\Controllers\Backsite\DashboardController;
+use App\Http\Controllers\Backsite\SpecialistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 Route::group(['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['auth:sanctum', 'verified']], function () {
 
     Route::resource('dashboard', DashboardController::class);
+
+    Route::resource('dashboard', SpecialistController::class);
 
 });
 
